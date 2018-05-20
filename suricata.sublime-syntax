@@ -1,0 +1,70 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+file_extensions:
+  - rules
+scope: text.suricata
+contexts:
+  main:
+    # Strings begin and end with quotes, and use backslashes as an escape
+    # character
+    - match: '"'
+      scope: punctuation.definition.string.begin.suricata
+      push: double_quoted_string
+
+    # Comments begin with a '//' and finish at the end of the line
+    - match: '#'
+      scope: punctuation.definition.comment.suricata
+      push: line_comment
+
+    # Keywords are if, else for and while.
+    # Note that blackslashes don't need to be escaped within single quoted
+    # strings in YAML. When using single quoted strings, only single quotes
+    # need to be escaped: this is done by using two single quotes next to each
+    # other.
+    - match: '\b(pass|drop|reject|alert)\b'
+      scope: keyword.action.suricata
+
+    - match: '\b(tcp|udp|ip|icmp|http|ftp|tls|smb|dns)\b'
+      scope: constant.numeric.protocol.suricata
+
+    - match: '\b(msg|sid|rev|reference|classtype)\b'
+      scope: variable.language.suricata
+
+    - match: '\burilen|http_(uri|header|raw_uri|method|request_line|client_body|raw_header|cookie|user_agent|host|raw_host|accept|accept_lang|accept_enc|referer|connection|content_type|content_len|start|protocol|header_names|stat_msg|stat_code|response_line|server_body|start)\b'
+      scope: entity.name.constant
+
+    - match: '\b(distance|offset|depth|within|dsize|byte_test|byte_jump|byte_extract|nocase|isdataat|rpc|pcre|fast_pattern):?\b'
+      scope: variable.function.suricata
+
+    - match: '\b(flow|flowbits|flowint|stream_size|ttl|ipopts|sameip|ip_proto|id|geoip|fragbits|fragoffset|seq|ack|window|itype|icode|icmp_id|icmp_seq)\b'
+      scope: keyword.operator.suricata
+
+    - match: '\btls_(cert(_subject|_issuer|_serial|_notbefore|_notafter|_expired|_valid)|sni)\b'
+      scope: entity.name.tag
+
+    # learn YAML's regex engine to figure out how the fuck you escape . inside single quotes.
+    #- match: '\btls.subject\b'
+    #  scope: entity.name.tag
+    #  scope: variable.language.suricata
+    
+    # Matching source and destination IP/port variables | need to change the colours here.
+    #|((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4})
+    - match: '\bHTTP(_PORTS|_SERVERS)|(EXTERNAL|HOME)_NET|any\b'
+      scope: punctuation.definition.variable.srcdst.suricata
+
+    - match: '\bcontent\b'
+      scope: keyword.msg.suricata
+
+  double_quoted_string:
+    - meta_scope: string.quoted.double.suricata
+    - match: '\\.'
+      scope: constant.character.escape.suricata
+    - match: '"'
+      scope: punctuation.definition.string.end.suricata
+      pop: true
+
+  line_comment:
+    - meta_scope: comment.line.suricata
+    - match: '#'
+      pop: true
