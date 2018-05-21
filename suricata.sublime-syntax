@@ -20,7 +20,7 @@ contexts:
     - match: '\b(pass|drop|reject|alert)\b'
       scope: keyword.action.suricata
 
-    - match: '\b(tcp|udp|ip|icmp|http|ftp|tls|smb|dns)\b'
+    - match: \x20(tcp|udp|ip|icmp|http|ftp|tls|smb|dns)\x20
       scope: constant.numeric.protocol.suricata
 
     - match: '\b(msg|sid|rev|reference|classtype|priority|metadata|target|gid)\b'
@@ -35,15 +35,10 @@ contexts:
     - match: '\b(xbits|flow|flowbits|flowint|stream_size|ttl|iprep|ipopts|sameip|ip_proto|id|geoip|fragbits|fragoffset|seq|ack|window|itype|icode|icmp_id|icmp_seq|file(name|ext|magic|store|md5|sha1|sha256|size)|ja3_(hash|string)|dnp3_(func|ind|obj|data))\b'
       scope: keyword.operator.suricata
 
-    - match: '\bdns_[a-z_]+|tls_(cert[a-z_]+)\b'
+    - match: '\btls\.(version|subject|issuerdn|fingerprint|store)|dns_query|tls_(cert_(subject|issuer|serial|fingerprint|notbefore|notafter|expired|valid)|ssl_state)\b'
       scope: entity.name.tag
-
-    # learn YAML's regex engine to figure out how you escape . inside single quotes. ???
-    #- match: '\btls.subject\b'
-    #  scope: entity.name.tag
-    #  scope: variable.language.suricata
     
-    - match: '\bHTTP(_PORTS|_SERVERS)|(EXTERNAL|HOME)_NET|any\b'
+    - match: \$HTTP(_PORTS|_SERVERS)|\$(EXTERNAL|HOME)_NET|any
       scope: punctuation.definition.variable.srcdst.suricata
 
     - match: '\bcontent\b'
