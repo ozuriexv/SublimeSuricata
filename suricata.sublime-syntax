@@ -62,8 +62,6 @@ contexts:
 
   double_quoted_string:
     - meta_scope: string.quoted.double.suricata
-    - match: '\\.'
-      scope: constant.character.escape.suricata
     - match: '"'
       scope: punctuation.definition.string.end.suricata
       pop: true
