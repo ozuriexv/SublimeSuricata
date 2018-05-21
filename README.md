@@ -1,6 +1,32 @@
 # SublimeSuricata
 Basic Suricata syntax highlighter for Sublime Text 3.
 
+Accounts for all of the following in Suricata v4.1 onwards
+- Meta keywords
+- IP keywords
+- TCP keywords
+- ICMP keywords
+- Payload keywords
+- Prefiltering keywords
+- Flow keywords
+- HTTP keywords
+- File keywords
+- DNS keywords
+- SSL/TLS keywords
+- JA3 keywords
+- DNP3 keywords
+- Xbits keywords
+- Thresholding keywords (partial)
+- IP reputation keywords
+
+
+To do
+- Add Modbus keywords
+- Add ENIP/CIP keywords
+- Add FTP/FTP-DATA keywords
+- Add app-layer keywords
+
+
 # Getting it working
 - Save the suricata.sublime-syntax in your Packages/User folder
   - Windows - C:\Users\%user%\AppData\Roaming\Sublime Text 3\Packages\User
