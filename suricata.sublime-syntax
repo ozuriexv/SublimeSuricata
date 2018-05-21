@@ -40,7 +40,7 @@ contexts:
     - match: '\b(flow|flowbits|flowint|stream_size|ttl|ipopts|sameip|ip_proto|id|geoip|fragbits|fragoffset|seq|ack|window|itype|icode|icmp_id|icmp_seq)\b'
       scope: keyword.operator.suricata
 
-    - match: '\btls_(cert(_subject|_issuer|_serial|_notbefore|_notafter|_expired|_valid)|sni)\b'
+    - match: '\bdns_[a-z_]+|tls_(cert[a-z_]+)\b'
       scope: entity.name.tag
 
     # learn YAML's regex engine to figure out how the fuck you escape . inside single quotes.
