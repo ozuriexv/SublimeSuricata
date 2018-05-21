@@ -13,9 +13,12 @@ contexts:
       push: double_quoted_string
 
     # Comments begin with a '//' and finish at the end of the line
-    - match: '#'
+    - match: '\#'
       scope: punctuation.definition.comment.suricata
-      push: line_comment
+      push:
+        - meta_scope: comment.block.suricata
+        - match: $\n?
+          pop: true
 
     # Keywords are if, else for and while.
     # Note that blackslashes don't need to be escaped within single quoted
@@ -63,9 +66,4 @@ contexts:
       scope: constant.character.escape.suricata
     - match: '"'
       scope: punctuation.definition.string.end.suricata
-      pop: true
-
-  line_comment:
-    - meta_scope: comment.line.suricata
-    - match: '#'
       pop: true
