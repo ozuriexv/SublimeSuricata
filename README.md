@@ -1,6 +1,8 @@
 # SublimeSuricata
 Basic Suricata syntax highlighter for Sublime Text 3.
 
+![alt text](https://raw.githubusercontent.com/sudosev/SublimeSuricata/master/sublimesuricata.png)
+
 Accounts for all of the following in Suricata v4.1 onwards
 - Meta keywords
 - IP keywords
