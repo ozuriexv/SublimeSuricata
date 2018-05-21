@@ -6,13 +6,10 @@ file_extensions:
 scope: text.suricata
 contexts:
   main:
-    # Strings begin and end with quotes, and use backslashes as an escape
-    # character
     - match: '"'
       scope: punctuation.definition.string.begin.suricata
       push: double_quoted_string
 
-    # Comments begin with a '//' and finish at the end of the line
     - match: '\#'
       scope: punctuation.definition.comment.suricata
       push:
@@ -20,18 +17,12 @@ contexts:
         - match: $\n?
           pop: true
 
-    # Keywords are if, else for and while.
-    # Note that blackslashes don't need to be escaped within single quoted
-    # strings in YAML. When using single quoted strings, only single quotes
-    # need to be escaped: this is done by using two single quotes next to each
-    # other.
     - match: '\b(pass|drop|reject|alert)\b'
       scope: keyword.action.suricata
 
     - match: '\b(tcp|udp|ip|icmp|http|ftp|tls|smb|dns)\b'
       scope: constant.numeric.protocol.suricata
 
-    # Meta Keywords
     - match: '\b(msg|sid|rev|reference|classtype|priority|metadata|target|gid)\b'
       scope: variable.language.suricata
 
@@ -47,13 +38,11 @@ contexts:
     - match: '\bdns_[a-z_]+|tls_(cert[a-z_]+)\b'
       scope: entity.name.tag
 
-    # learn YAML's regex engine to figure out how the fuck you escape . inside single quotes.
+    # learn YAML's regex engine to figure out how you escape . inside single quotes. ???
     #- match: '\btls.subject\b'
     #  scope: entity.name.tag
     #  scope: variable.language.suricata
     
-    # Matching source and destination IP/port variables | need to change the colours here.
-    #|((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4})
     - match: '\bHTTP(_PORTS|_SERVERS)|(EXTERNAL|HOME)_NET|any\b'
       scope: punctuation.definition.variable.srcdst.suricata
 
