@@ -28,8 +28,9 @@ To do
 
 
 # Getting it working
-- Save the suricata.sublime-syntax in your Packages/User folder
-  - Windows - C:\Users\%user%\AppData\Roaming\Sublime Text 3\Packages\User
-  - Mac - /Users/{user}/Library/Application Support/Sublime Text 3/Packages/User
+- Save the suricata.sublime-syntax file in your Packages User folder
+  - Windows: C:\Users\%user%\AppData\Roaming\Sublime Text 3\Packages\User
+  - Mac: /Users/{user}/Library/Application Support/Sublime Text 3/Packages/User
+  - Linux: /home/**username**/.config/sublime-text-3/Packages/User
 - Open Sublime Text 3
 - View > Syntax > suricata
