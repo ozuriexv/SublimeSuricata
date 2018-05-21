@@ -28,16 +28,17 @@ contexts:
     - match: '\b(tcp|udp|ip|icmp|http|ftp|tls|smb|dns)\b'
       scope: constant.numeric.protocol.suricata
 
-    - match: '\b(msg|sid|rev|reference|classtype)\b'
+    # Meta Keywords
+    - match: '\b(msg|sid|rev|reference|classtype|priority|metadata|target|gid)\b'
       scope: variable.language.suricata
 
-    - match: '\burilen|http_(uri|header|raw_uri|method|request_line|client_body|raw_header|cookie|user_agent|host|raw_host|accept|accept_lang|accept_enc|referer|connection|content_type|content_len|start|protocol|header_names|stat_msg|stat_code|response_line|server_body|start)\b'
+    - match: '\bfile_data|urilen|http_(uri|header|raw_uri|method|request_line|client_body|raw_header|cookie|user_agent|host|raw_host|accept|accept_lang|accept_enc|referer|connection|content_type|content_len|start|protocol|header_names|stat_msg|stat_code|response_line|server_body|start)\b'
       scope: entity.name.constant
 
-    - match: '\b(distance|offset|depth|within|dsize|byte_test|byte_jump|byte_extract|nocase|isdataat|rpc|pcre|fast_pattern):?\b'
+    - match: '\b(distance|offset|depth|within|dsize|byte_test|byte_jump|byte_extract|nocase|isdataat|rpc|pcre|fast_pattern|startswith|replace|prefilter):?\b'
       scope: variable.function.suricata
 
-    - match: '\b(flow|flowbits|flowint|stream_size|ttl|ipopts|sameip|ip_proto|id|geoip|fragbits|fragoffset|seq|ack|window|itype|icode|icmp_id|icmp_seq)\b'
+    - match: '\b(xbits|flow|flowbits|flowint|stream_size|ttl|iprep|ipopts|sameip|ip_proto|id|geoip|fragbits|fragoffset|seq|ack|window|itype|icode|icmp_id|icmp_seq|file(name|ext|magic|store|md5|sha1|sha256|size)|ja3_(hash|string)|dnp3_(func|ind|obj|data))\b'
       scope: keyword.operator.suricata
 
     - match: '\bdns_[a-z_]+|tls_(cert[a-z_]+)\b'
