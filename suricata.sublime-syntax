@@ -20,13 +20,16 @@ contexts:
     - match: '\b(pass|drop|reject|alert)\b'
       scope: keyword.action.suricata
 
+    - match: '[a-z]+:![^;]+;'
+      scope: markup.heading markup.changed
+
     - match: \x20(tcp|udp|ip|icmp|http|ftp|tls|smb|dns)\x20
       scope: constant.numeric.protocol.suricata
 
     - match: '\b(msg|sid|rev|reference|classtype|priority|metadata|target|gid)\b'
       scope: variable.language.suricata
 
-    - match: '\bfile_data|urilen|http_(uri|header|raw_uri|method|request_line|client_body|raw_header|cookie|user_agent|host|raw_host|accept|accept_lang|accept_enc|referer|connection|content_type|content_len|start|protocol|header_names|stat_msg|stat_code|response_line|server_body|start)\b'
+    - match: '\bftp(data_command|bounce)|file_data|urilen|http_(uri|header|raw_uri|method|request_line|client_body|raw_header|cookie|user_agent|host|raw_host|accept|accept_lang|accept_enc|referer|connection|content_type|content_len|start|protocol|header_names|stat_msg|stat_code|response_line|server_body|start)\b'
       scope: entity.name.constant
 
     - match: '\b(distance|offset|depth|within|dsize|byte_test|byte_jump|byte_extract|nocase|isdataat|rpc|pcre|fast_pattern|startswith|replace|prefilter):?\b'
@@ -40,6 +43,9 @@ contexts:
     
     - match: \$HTTP(_PORTS|_SERVERS)|\$(EXTERNAL|HOME)_NET|any
       scope: punctuation.definition.variable.srcdst.suricata
+
+    - match: app-layer-(event|protocol)
+      scope: keyword.operator
 
     - match: '\bcontent\b'
       scope: keyword.msg.suricata
