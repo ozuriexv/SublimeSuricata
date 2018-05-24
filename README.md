@@ -20,6 +20,8 @@ Accounts for all of the following in Suricata v4.1 onwards
 - Xbits keywords
 - Thresholding keywords (partial)
 - IP reputation keywords
+- FTP keywords
+- App-layer keywords
 
 
 
@@ -27,8 +29,7 @@ Accounts for all of the following in Suricata v4.1 onwards
 To do
 - Add Modbus keywords
 - Add ENIP/CIP keywords
-- Add FTP/FTP-DATA keywords
-- Add app-layer keywords
+
 
 
 # Getting it working
