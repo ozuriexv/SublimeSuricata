@@ -22,15 +22,11 @@ Accounts for all of the following in Suricata v4.1 onwards
 - IP reputation keywords
 - FTP keywords
 - App-layer keywords
-
-
-
+- Bold orange highlighting of negated content (i.e. content:!"negated"; and isdataat:!1,relative;)
 
 To do
 - Add Modbus keywords
 - Add ENIP/CIP keywords
-
-
 
 # Getting it working
 - Save the suricata.sublime-syntax file in your Packages User folder
