@@ -59,6 +59,11 @@
             "foreground": "#5bf076",
         },
         {
+            "name": "Negations",
+            "scope": "rule.negations.suricata",
+            "foreground": "#f71115",
+        },
+        {
             "name": "Metadata",
             "scope": "rule.metadata.suricata",
             "foreground": "#de99e0",
