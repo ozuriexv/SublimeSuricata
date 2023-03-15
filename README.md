@@ -6,7 +6,7 @@ Basic Suricata syntax highlighter for Sublime Text (tested on Sublime Text 4).
 
 Now built with a custom color scheme instead of just a highlighter based on existing color schemes.
 
-Accounts for all of the following in Suricata-7.0.0rc1 onwards:
+Accounts for all of the following in Suricata-7.0.0rc1:
 - Meta keywords
 - IP keywords
 - TCP keywords
@@ -55,5 +55,5 @@ Experimental idea - this syntax highlighter will point out some warnings/errors 
   - Windows: 'C:\Users\%user%\AppData\Roaming\Sublime Text 3\Packages\User'
   - Mac: $home/Library/Application Support/Sublime Text 3/Packages/User
   - Linux: $home/.config/sublime-text-3/Packages/User
-- Open Sublime Text 4
+- Open Sublime Text
 - View > Syntax > suricata
