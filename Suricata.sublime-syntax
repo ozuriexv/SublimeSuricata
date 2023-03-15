@@ -1,0 +1,172 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/syntax.html
+name: Suricata
+file_extensions:
+  - rules
+scope: source.example-c
+
+contexts:
+  main:
+    # Error - Double Sticky Buffer
+    - match: 'dns\.query;\s*dns\.query;'
+      scope: error.double.sticky.buffer.suricata
+
+    # Warning - Double Space
+    - match: ';\s{2,}'
+      scope: warning.double.space.suricata
+
+    # character
+    - match: '"'
+      scope: rule.double.quoted.suricata
+      push: double_quoted_string
+
+    # Comments
+    - match: '#'
+      scope: punctuation.definition.comment.example-c
+      push: line_comment
+
+    # Actions
+    - match: '\b(alert|drop|reject|pass)\b'
+      scope: rule.action.suricata
+
+    # Protocols
+    - match: '\s(http|dns|tcp|udp|icmp|ip|ftp|tls|smb|dcerpc|dhcp|ssh|smtp|imap|modbus|dnp3|enip|nfs|ike|krb5|bittorrent-dht|ntp|rfb|rdp|snmp|tftp|sip|http2)\s'
+      scope: rule.proto.suricata
+
+    # App-layer-event/dataset keywords
+    - match: '\b(app-layer-event:|dataset)\b'
+      scope: rule.app.layer.event.suricata
+
+    # TCP/UDP keywords
+    - match: '\b(seq|ack|window|tcp\.(mss|hdr)|udp\.hdr)'
+      scope: rule.lesser.main.keywords.suricata
+
+    # IP keywords
+    - match: '\s(ttl|ipopts|sameip|ip_proto|ipv4\.hdr|ipv6\.hdr|id|geoip|fragbits|fragoffset|tos|iprep)|ip\.(src|dst)'
+      scope: rule.lesser.main.keywords.suricata
+
+    # ICMP keywords
+    - match: '\b(itype|icode|icmp_(id|seq)|icmpv(4|6)\.hdr)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # HTTP keywords
+    - match: '\b(http\.(method|uri(\.raw)?|protocol|request_line|header(\.raw)?|cookie|user_agent|accept(_enc|_lang)?|connection|content(_len|_type)?|referer|start|header_names|request_body|stat(_code|_msg)|response_line|response_body|server|location|host(\.raw)?)|file[\._]data)\b'
+      scope: rule.common.main.keywords.suricata
+
+    # DNS keywords
+    - match: '\b(dns\.(query|opcode))\b'
+      scope: rule.common.main.keywords.suricata
+
+    # TLS keywords
+    - match: '\b(tls\.(cert_(subject|issuer|serial|fingerprint))|sni|certs|version|subject|issuerdn|fingerprint|store|random(_time|_bytes)?)|ssl_(version|state)|tls_(cert_(notbefore|notafter|expired|valid))\b'
+      scope: rule.common.main.keywords.suricata
+
+    # Payload keywords
+    - match: '\b(content|nocase|depth|startswith|endswith|offset|distance|within|rawbytes|isdataat|[bd]size|byte_(test|math|jump|extract)|rpc|replace)\b'
+      scope: rule.payload.keywords.suricata
+
+    # Transformations
+    - match: '\b(dotprefix|strip_whitespace|compress_whitespace|to_(md5|sha1|sha256)|pcrexform|url_decode|xor)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # SSH keywords
+    - match: '\b(ssh\.(proto|software|protoversion|softwareversion|hassh(\.(string|server(\.string)?)?)?))\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # File keywords
+    - match: '\bfile(name|ext|magic|store|md5|sha1|sha256|size)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # JA3 keywords
+    - match: '\bja3s?\.(hash|string)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # MODBUS keywords
+    #- match: '\bmodbus:\s?(access|function|unit)'
+    #  scope: rule.lesser.main.keywords.suricata
+
+    # DCERPC keywords
+    - match: '\bdcerpc\.(iface|opnum|stub_data)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # DHCP keywords
+    - match: '\bdhcp\.(leasetime|rebinding_time|renewal_time)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # DNP3 keywords
+    - match: '\bdnp3_(func|ind|obj|data)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # ENIP/CIP keywords
+    - match: '\b(enip_command|cip_service)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # FTP/FTP-DATA keywords
+    - match: '\b(ftpdata_command|ftpbounce)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # Kerberos keywords
+    - match: '\b(krb5_(msg_type|cname|sname|err_code)|krb\.(weak_encryption|malformed_data|ticket_encryption))\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # SNMP keywords
+    - match: '\bsnmp\.(version|community|usm|pdu_type)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # Base64 keywords
+    - match: '\bbase64_d(ecode|ata)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # SIP keywords
+    - match: '\bsip\.(method|uri|request_line|stat_(code|msg)|response_line|protocol)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # RFB keywords
+    - match: '\brfb\.(name|secresult|sectype)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # MQTT keywords
+    - match: '\bmqtt\.(protocol_version|type|flags|qos|reason_code|connack\.session_present|connect\.(clientid|flags|password|username|willmessage|willtopic)|publish\.(message|topic)|subscribe\.topic|unsubscribe\.topic)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # IKE keywords
+    - match: '\bike\.(init_spi|resp_spi|chosen_sa_attribute|exchtype|vendor|key_exchange_payload|key_exchange_payload_length|nonce_payload(_length)?)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # HTTP2 keywords
+    - match: '\bhttp2\.(frametype|errorcode|priority|window|size_update|settings|header_name|header)\b'
+      scope: rule.common.main.keywords.suricata
+
+    # QUIC keywords
+    - match: '\bquic\.(cyu\.(hash|string)|version)\b'
+      scope: rule.lesser.main.keywords.suricata
+
+    # Xbits/Flow/Threshold keywords
+    - match: '\b(xbits|flow(bits|int|\.age)?|stream_size|threshold)\b'
+      scope: rule.flow.suricata
+
+    # PCRE
+    - match: '\bpcre\b'
+      scope: rule.pcre.suricata
+
+    # Prefiltering keywords
+    - match: '\b(prefilter|fast_pattern)\b'
+      scope: rule.fast.pattern.suricata
+
+    # Metadata
+    - match: '\b(sid|rev|gid|classtype|reference|priority|target|metadata)\b'
+      scope: rule.metadata.suricata
+
+  double_quoted_string:
+    - meta_scope: string.quoted.double.example-c
+    - match: '\\.'
+      scope: constant.character.escape.example-c
+    - match: '"'
+      scope: punctuation.definition.string.end.example-c
+      pop: true
+
+  line_comment:
+    - meta_scope: comment.suricata
+    - match: $
+      pop: true

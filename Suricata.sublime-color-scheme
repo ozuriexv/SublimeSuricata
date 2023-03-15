@@ -1,0 +1,83 @@
+{
+    "name": "Suricata Color Scheme",
+    "globals":
+    {
+        "background": "rgb(34, 34, 34)",
+        "foreground": "#EEEEEE",
+        "caret": "white"
+    },
+    "rules":
+    [
+        {
+            "name": "Comment",
+            "scope": "comment.suricata",
+            "foreground": "#999999",
+        },
+        {
+            "name": "Action",
+            "scope": "rule.action.suricata",
+            "foreground": "#63a3db",
+        },
+        {
+            "name": "Protocol",
+            "scope": "rule.proto.suricata",
+            "foreground": "#fdb372",
+        },
+        {
+            "name": "Lesser Used Keywords",
+            "scope": "rule.lesser.main.keywords.suricata",
+            "foreground": "#ff914d",
+        },
+        {
+            "name": "Payload Keywords",
+            "scope": "rule.payload.keywords.suricata",
+            "foreground": "#d6696e",
+        },
+        {
+            "name": "PCRE",
+            "scope": "rule.pcre.suricata",
+            "foreground": "#a37cf2",
+        },
+        {
+            "name": "More Common Keywords",
+            "scope": "rule.common.main.keywords.suricata",
+            "foreground": "#fcf705",
+        },
+        {
+            "name": "App-layer-event",
+            "scope": "rule.app.layer.event.suricata",
+            "foreground": "#d1ff5e",
+        },
+        {
+            "name": "Fast Pattern",
+            "scope": "rule.fast.pattern.suricata",
+            "foreground": "#56b2f0",
+        },
+        {
+            "name": "Xbits/Flowbits",
+            "scope": "rule.flow.suricata",
+            "foreground": "#5bf076",
+        },
+        {
+            "name": "Metadata",
+            "scope": "rule.metadata.suricata",
+            "foreground": "#de99e0",
+        },
+        {
+            "name": "String",
+            "scope": "string",
+            "foreground": "hsla(50, 100%, 80%, 1)",
+        },
+        {
+            "name": "WARNING - Double Space",
+            "scope": "warning.double.space.suricata",
+            "background": "#fcf705",
+        },
+        {
+            "name": "ERROR - Double Sticky Buffer",
+            "scope": "error.double.sticky.buffer.suricata",
+            "foreground": "#000000",
+            "background": "#e60b25",
+        }
+    ]
+}
