@@ -51,9 +51,10 @@ Experimental idea - this syntax highlighter will point out some warnings/errors 
 ![Alt text](/double_buffer.png)
 
 # Getting it working
-- Save the 'Suricata.sublime-syntax' and 'Suricata.sublime-color-scheme' files in your Packages User folder
-  - Windows: 'C:\Users\%user%\AppData\Roaming\Sublime Text 3\Packages\User'
-  - Mac: $home/Library/Application Support/Sublime Text 3/Packages/User
-  - Linux: $home/.config/sublime-text-3/Packages/User
+- Save the Suricata folder in your 'Packages' folder
+  - Windows: 'C:\Users\%user%\AppData\Roaming\Sublime Text 3\Packages'
+  - Mac: $HOME/Library/Application Support/Sublime Text/Packages
+  - Linux: $home/.config/sublime-text-3/Packages
 - Open Sublime Text
-- View > Syntax > suricata
+- View > Syntax > Suricata
+- Set your color scheme to 'Suricata'
