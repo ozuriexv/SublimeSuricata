@@ -74,13 +74,13 @@
             "foreground": "hsla(50, 100%, 80%, 1)",
         },
         {
-            "name": "WARNING - Double Space",
-            "scope": "warning.double.space.suricata",
+            "name": "WARNING",
+            "scope": "rule.warning.suricata",
             "background": "#fcf705",
         },
         {
-            "name": "ERROR - Double Sticky Buffer",
-            "scope": "error.double.sticky.buffer.suricata",
+            "name": "ERROR",
+            "scope": "rule.error.suricata",
             "foreground": "#000000",
             "background": "#e60b25",
         }
