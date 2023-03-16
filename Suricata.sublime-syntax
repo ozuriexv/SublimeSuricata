@@ -63,7 +63,7 @@ contexts:
       scope: rule.lesser.main.keywords.suricata
 
     # HTTP keywords
-    - match: '\b(http\.(method|uri(\.raw)?|protocol|request_line|header(\.raw)?|cookie|user_agent|accept(_enc|_lang)?|connection|content(_len|_type)?|referer|start|header_names|request_body|stat(_code|_msg)|response_line|response_body|server|location|host(\.raw)?)|file[\._]data)\b'
+    - match: '\b(http\.(method|uri(\.raw)?|protocol|request_line|header(\.raw)?|cookie|user_agent|accept(_enc|_lang)?|connection|content(_len|_type)?|referer|start|header_names|request_body|stat(_code|_msg)|response_line|response_body|server|location|host(\.raw)?)|file[\._]data|urilen)\b'
       scope: rule.common.main.keywords.suricata
 
     # DNS keywords
