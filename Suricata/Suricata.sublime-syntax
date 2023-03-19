@@ -28,8 +28,12 @@ contexts:
     - match: '(?:dns\.query|http\.method|(?:http\.uri(?!\.raw)|http\.uri\.raw)|http\.cookie|http\.user_agent|http\.accept(?!_(?:enc|lang))|http\.accept_enc|http\.accept_lang|http\.connection|http\.content_len|http\.content_type|http\.referer|http\.start|http\.header_names|http\.request_body|http\.stat_code|http\.stat_msg|http\.response_line|http\.response_body|http\.server|http\.location|http\.host(?!\.raw)|http\.host\.raw|file[\._]data)(?!;)'
       scope: rule.error.suricata
 
-    # Error - Missing semi-colon on no option Payload keywords
+    # Error - Missing semi-colon on no option payload keywords
     - match: '(?:nocase|startswith|endswith|fast_pattern)(?!;)'
+      scope: rule.error.suricata
+
+    # Error - Missing semi-colon on transformations
+    - match: '\b(?:dotprefix|strip_whitespace|compress_whitespace|to_(md5|sha1|sha256)|pcrexform|url_decode|xor)(?!;)\b'
       scope: rule.error.suricata
 
     # Error - Double Sticky Buffer
