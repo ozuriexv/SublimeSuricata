@@ -29,7 +29,7 @@ contexts:
       scope: rule.error.suricata
 
     # Error - Missing semi-colon on no option payload keywords
-    - match: '(?:nocase|startswith|endswith|fast_pattern(?:only|:[0-9]+,[0-9]+)?)(?!;)'
+    - match: '(?:nocase|startswith|endswith|fast_pattern)(?!;)'
       scope: rule.error.suricata
 
     # Error - Missing semi-colon on transformations
