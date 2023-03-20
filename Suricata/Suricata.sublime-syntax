@@ -36,6 +36,12 @@ contexts:
     - match: '\b(?:dotprefix|strip_whitespace|compress_whitespace|to_(md5|sha1|sha256)|pcrexform|url_decode|xor)(?!;)\b'
       scope: rule.error.suricata
 
+    # Error - Missing options or semi-colon payload keywords that accept option
+    # Support [a-zA-Z0-9\-_] for byte_extract variable names
+    # This also catches unrequired spaces
+    - match: '\b(depth|offset|distance|within)(?!:!?([0-9]+|[a-zA-Z\-_]+);)'
+      scope: rule.error.suricata
+
     # Error - Double Sticky Buffer
     - match: '(dns\.query;\s*dns\.query;|dns\.opcode;\s*dns\.opcode;|http\.method\s*http\.method;|http\.uri;\s*http\.uri;|http\.uri\.raw;\s*http\.uri\.raw;|http\.cookie;\s*http\.cookie;|http\.user_agent;\s*http\.user_agent;|http\.accept;\s*http\.accept;|http\.accept_enc;\s*http\.accept_enc;|http\.accept_lang;\s*http\.accept_lang;|http\.connection;\s*http\.connection;|http\.content_len;\s*http\.content_len|http\.content_type;\s*http\.content_type|http\.referer;\s*http\.referer;|http\.start;\s*http\.start;|http\.header_names;\s*http\.header_names;|http\.request_body;\s*http\.request_body;|http\.stat_code;\s*http\.stat_code;|http\.stat_msg;\s*http\.stat_msg;|http\.response_line;\s*http\.response_line|http\.response_body;\s*http\.response_body;|http\.server;\s*http\.server;|http\.location;\s*http\.location|http\.host;\s*http\.host;|http\.host\.raw;\s*http\.host\.raw;|file[\._]data;\s*file[\._]data;)'
       scope: rule.error.suricata
