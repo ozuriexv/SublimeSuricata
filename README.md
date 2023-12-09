@@ -6,7 +6,7 @@ Basic Suricata syntax highlighter for Sublime Text (tested on Sublime Text 4).
 
 Now built with a custom color scheme instead of just a highlighter based on existing color schemes.
 
-Includes all features from the Suricata-7.0.0rc1 branch as well as the following additional features:
+Includes all features from the Suricata-7.0.0rc1 branch.
 
 # Warning/Error highlighting
 Experimental idea - this syntax highlighter will point out some warnings/errors (warnings being rule styling that does not conform with Emerging Threats styling, errors being bad logic).  Currently there are only 2 scenarios (as I said, experimental, if this is annoying it will be scrapped):
