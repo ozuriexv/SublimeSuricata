@@ -52,7 +52,7 @@ Experimental idea - this syntax highlighter will point out some warnings/errors 
 
 # Getting it working
 - Save the Suricata folder in your 'Packages' folder
-  - Windows: 'C:\Users\%user%\AppData\Roaming\Sublime Text 3\Packages'
+  - Windows: 'C:\Users\\%user%\AppData\Roaming\Sublime Text 3\Packages'
   - Mac: $HOME/Library/Application Support/Sublime Text/Packages
   - Linux: $home/.config/sublime-text-3/Packages
 - Open Sublime Text
