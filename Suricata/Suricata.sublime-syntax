@@ -160,7 +160,7 @@ contexts:
       scope: rule.lesser.main.keywords.suricata
 
     # Kerberos keywords
-    - match: '\b(krb5_(msg_type|cname|sname|err_code)|krb\.(weak_encryption|malformed_data|ticket_encryption))\b'
+    - match: '\b(krb5_(msg_type|cname|sname|err_code)|krb5\.(weak_encryption|malformed_data|ticket_encryption))\b'
       scope: rule.lesser.main.keywords.suricata
 
     # SNMP keywords
